@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# User Directory
 
-## Getting Started
+A compact user directory that fetches people from **JSONPlaceholder** and lets you filter by **name**, **city**, and **company**. Built to showcase clean React + Next composition, atomic component layering, and solid UX (debounced search, clear filters, loading/error states).
 
-First, run the development server:
+---
+
+## ✨ Features
+
+* Fetch users from a public API (JSONPlaceholder)
+* Debounced text search (smooth typing; fewer re-renders)
+* Free text and dropdown filters
+* Resilient data fetch with `AbortController` and retry button
+* Responsive card grid (mobile → desktop)
+
+---
+
+## 🧱 Tech Stack
+
+* **React 19** + **Next 15** + **TypeScript**
+* **shadcn/ui** (Radix + Tailwind)
+* **Lucide** icons
+* **Biome** formatter and linter
+* **Bun** (recommended) — or any Node package manager
+
+> No environment variables required.
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+* **Bun** ≥ 1.x *(recommended)*
+  or **Node** ≥ 18 with **npm**/**pnpm**/**yarn**.
+
+### Install & Run (Bun)
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
+bun install
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The terminal will show the local development URL.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build & Preview
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# Bun
+bun build
+bun start
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🗂️ Project Structure (excerpt)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+app/
+  layout.tsx
+  page.tsx
+components/
+  ui/                # shadcn/ui atoms
+  molecules/         # multiple specific functional ui components 
+  organisms/         # group of molecules components
+hooks/
+  useUsers.ts       # fetch with AbortController + refetch
+  useDebouncedValue.ts
+constants/
+lib/
+  utils.ts          # utility functions
+types/
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
