@@ -27,38 +27,57 @@ export default function ActiveFilters({
       {hasValue(filters.search) && (
         <Badge variant="secondary" className="gap-1">
           Search: {filters.search}
-          <X
-            className="h-3 w-3 cursor-pointer"
-            onClick={() => onChange({ search: "" })}
-          />
+          <button
+            type="button"
+            className="inline-flex items-center"
+            aria-label="Clear search filter"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              onChange({ search: "" });
+            }}
+          >
+            <X className="h-3 w-3" />
+          </button>
         </Badge>
       )}
       {hasValue(filters.city) && (
         <Badge variant="secondary" className="gap-1">
           City: {filters.city}
-          <X
-            className="h-3 w-3 cursor-pointer"
-            onClick={() => onChange({ city: "" })}
-          />
+          <button
+            type="button"
+            className="inline-flex items-center"
+            aria-label="Clear city filter"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              onChange({ city: "" });
+            }}
+          >
+            <X className="h-3 w-3" />
+          </button>
         </Badge>
       )}
       {hasValue(filters.company) && (
         <Badge variant="secondary" className="gap-1">
           Company: {filters.company}
-          <X
-            className="h-3 w-3 cursor-pointer"
-            onClick={() => onChange({ company: "" })}
-          />
+          <button
+            type="button"
+            className="inline-flex items-center"
+            aria-label="Clear company filter"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              onChange({ company: "" });
+            }}
+          >
+            <X className="h-3 w-3" />
+          </button>
         </Badge>
       )}
-      <Button
-        variant="outline"
-        size="sm"
-        onClick={onClear}
-        className="ml-1 bg-transparent"
-      >
+      <Button variant="outline" size="sm" onClick={onClear} className="ml-1 bg-transparent">
         Clear All
       </Button>
     </div>
-  );
+  )
 }
