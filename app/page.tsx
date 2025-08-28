@@ -31,7 +31,7 @@ export default function Home() {
 
   const { cities, companies } = useMemo(() => {
     const getCity = (u: User) => u.address?.city;
-    const getCompanyName = (u: User) => u.address?.city;
+    const getCompanyName = (u: User) => u.company?.name;
 
     const cities: string[] = [
       ...new Set(users.map(getCity).filter(Boolean)),
