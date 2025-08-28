@@ -15,6 +15,7 @@
     "components": "@/components",
     "utils": "@/lib/utils",
     "ui": "@/components/ui",
+    "molecules": "@/components/molecules",
     "lib": "@/lib",
     "hooks": "@/hooks",
     "types": "@/types"
